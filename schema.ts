@@ -22,6 +22,17 @@ export const lists = createSchema({
       posts: relationship({ ref: 'Post.author', many: true }),
     },
   }),
+  Author: list({
+    ui: {
+      listView: {
+        initialColumns: ['name'],
+      },
+    },
+    fields: {
+      name: text({ isRequired: true }),
+      email: text({ isRequired: true, isUnique: true }),
+    },
+  }),
   Post: list({
     fields: {
       title: text(),
